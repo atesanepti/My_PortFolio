@@ -1,0 +1,492 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ##Font Roboto  */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/* ##Reuseable Style  */
+html {
+  @apply scroll-smooth;
+}
+section:not(#home),
+footer {
+  @apply py-8
+  md:py-9
+  lg:py-10
+  scroll-m-[120px];
+}
+section:not(#home, #education, #contact),
+footer {
+  @apply bg-white 
+  dark:bg-dark;
+}
+#container {
+  @apply w-5/6 mx-auto max-w-[1200px]   dark:text-white
+  text-black;
+}
+.section_title {
+  @apply pb-5 md:pb-6 lg:pb-7 text-center;
+}
+.section_title h3 {
+  @apply text-black 
+  dark:text-white 
+  text-2xl 
+  md:text-3xl 
+  font-semibold 
+  lg:font-bold;
+}
+
+/* #Button  */
+.btn {
+  @apply bg-primary-green text-white flex items-center gap-2 py-1 px-3 text-sm rounded-3xl md:text-base md:py-2 md:px-4 lg:px-5 transition-all
+  hover:scale-105 active:scale-100;
+}
+/* #card common code  */
+.cards {
+  @apply grid grid-cols-3 gap-4 md:gap-5 lg:gap-7;
+}
+.card {
+  @apply bg-white dark:bg-dark-suf capitalize shadow-[#0000003f] dark:shadow-[#00000091] shadow-2xl p-4 rounded-lg;
+}
+
+/* ##Home Style   */
+#home {
+  @apply bg-home-bg-light
+     bg-no-repeat
+     bg-cover
+     bg-center
+     dark:bg-home-bg-dark;
+}
+#header {
+  @apply flex 
+  justify-between 
+  items-center 
+  w-full 
+  h-[70px] 
+  lg:h-[80px]
+  px-9 transition-all duration-300 z-10;
+}
+#header.active {
+  @apply fixed top-0 bg-white dark:bg-[#100e17a9] shadow-2xl;
+  animation: toToBottom 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+@keyframes toToBottom {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.brand_name {
+  @apply text-base
+  text-white
+  md:text-lg
+  font-normal
+  uppercase
+  bg-primary-green
+  px-5 py-1
+  rounded-tl
+  rounded-br;
+}
+
+.nav_toggler {
+  @apply w-[20px] 
+  cursor-pointer 
+  text-xl
+  md:hidden
+  dark:text-white
+  text-black;
+}
+
+.navlist {
+  @apply fixed 
+  top-0 
+  right-[-100%]
+  bg-white
+  dark:bg-dark
+  w-1/2 
+  h-screen 
+  z-10 
+  py-20 
+  px-7 
+  transition-all
+  md:!bg-transparent
+  md:allunset;
+}
+.navlist li {
+  @apply md:inline-block 
+  md:ml-8;
+}
+
+.navlist.active {
+  @apply right-0;
+}
+.nav_close_toggler {
+  @apply absolute 
+  top-5 
+  left-7;
+}
+.navlink {
+  @apply text-black
+  dark:text-white
+   text-sm
+   block 
+   w-full 
+   p-2 
+   transition-all 
+   border-transparent 
+   border-l 
+   border-b
+   md:!border-none
+   md:text-base
+   lg:text-lg;
+}
+.navlink.active {
+  @apply md:text-primary-green;
+}
+.navlink:is(:hover, :focus-visible) {
+  @apply border-primary-green 
+  border-b 
+  border-l 
+  rounded-bl 
+  text-primary-green;
+}
+.black_overlly {
+  @apply absolute 
+  top-0 
+  left-0 
+  w-full 
+  h-screen 
+  bg-[#00000046] 
+  z-10 
+  hidden;
+}
+.black_overlly.active {
+  @apply block;
+}
+
+/* #Home Content  */
+.home_content {
+  @apply flex flex-col md:flex-row md:justify-between gap-10 md:gap-12 py-[70px] md:py-[80px] lg:py-[90px];
+}
+.home_text_content .label {
+  @apply bg-primary-green 
+  p-1 
+  text-sm
+   rounded-ss-2xl 
+   rounded-ee-2xl
+   md:text-base
+   md:p-2
+   lg:text-lg
+   text-white;
+}
+.home_text_content .name {
+  @apply text-4xl 
+  font-semibold
+  mt-2
+  md:text-5xl
+  md:mt-4;
+}
+.home_text_content .tagline {
+  @apply text-base 
+  md:text-lg
+  md:mt-1
+  font-medium;
+}
+.contact_preview {
+  @apply my-5;
+}
+.contact_preview > div {
+  @apply flex gap-3 
+  items-center 
+  text-xs mb-2 md:text-sm;
+}
+.contact_preview > div {
+  @apply flex gap-3 
+  items-center;
+}
+
+.home_banner figure {
+  background-image: url(./assets/imgs/developer_blur.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  @apply w-[250px] md:w-[300px] 
+  h-auto mx-auto;
+}
+.home_banner figure img {
+  @apply w-full 
+  aspect-square 
+  rounded-full
+  opacity-0
+  transition-all;
+}
+.home_banner figure.loaded img {
+  @apply opacity-100;
+}
+/* ##Cv Style  */
+#cv #container {
+  @apply flex flex-col md:flex-row md:justify-between md:items-center gap-10 md:gap-12;
+}
+.cv_banner {
+  @apply md:w-1/2;
+}
+.cv_banner figure {
+  background-image: url(./assets/imgs/about_banner_blur.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.cv_content {
+  @apply md:w-1/2;
+}
+.cv_banner figure {
+  @apply w-[250px] md:w-[300px] h-auto mx-auto;
+}
+.cv_banner figure img {
+  @apply w-full aspect-square object-cover transition-all opacity-0;
+}
+.cv_banner figure.loaded img {
+  @apply opacity-100;
+}
+.cv_content p {
+  @apply text-sm md:text-base text-black dark:text-white;
+}
+.skill_preview {
+  @apply p-3 flex gap-3 flex-wrap;
+}
+.skill_preview span {
+  @apply p-1 px-2 inline-block border-primary-green border rounded-md text-black dark:text-white text-sm md:text-base;
+}
+
+.cv_btn {
+  @apply mt-2 md:mt-3 lg:mt-4;
+}
+/* #About Style  */
+#about #container {
+  @apply flex flex-col;
+}
+#about #container .card h3 {
+  @apply text-black dark:text-white text-lg md:text-xl lg:text-2xl font-semibold my-2 md:my-3;
+}
+#about #container .card p {
+  @apply text-sm md:text-base text-black dark:text-white;
+}
+
+/* ##Skills Style  */
+#skill #container {
+  @apply flex flex-col md:flex-row md:justify-between gap-10 md:gap-12;
+}
+.technical_skill {
+  @apply md:w-1/2;
+}
+.Professional_skill {
+  @apply md:w-1/2;
+}
+.progress_conteiner {
+  @apply flex flex-col;
+}
+.progress_bar {
+  @apply p-1 md:px-1 md:py-2;
+}
+.progress_lable {
+  @apply flex justify-between;
+}
+.progress_lable span {
+  @apply text-sm md:text-base  text-black dark:text-white;
+}
+.horiz_line {
+  @apply w-full h-[4px] 
+  md:h-[6px] bg-gray-500 mt-1 md:mt-2
+  rounded-lg relative;
+}
+.horiz_line_inner {
+  @apply absolute h-full w-[0]
+  bg-primary-green rounded-lg 
+  transition-all duration-700  ease-linear;
+}
+.horiz_line_inner.active._86 {
+  @apply w-[86%];
+}
+.horiz_line_inner.active._75 {
+  @apply w-[75%];
+}
+.horiz_line_inner.active._90 {
+  @apply w-[90%];
+}
+.horiz_line_inner.active._80 {
+  @apply w-[80%];
+}
+.horiz_line_inner.active._85 {
+  @apply w-[85%];
+}
+.horiz_line_inner.active._70 {
+  @apply w-[70%];
+}
+.horiz_line_inner.active._90 {
+  @apply w-[90%];
+}
+
+.circle_progress_conteiner {
+  display: grid;
+  grid-template-columns: auto auto;
+  @apply gap-4 md:gap-5;
+}
+.circle_outer {
+  background-image: conic-gradient(
+    #16453e 0deg,
+    #16453e 100deg,
+    #c9f29b 100deg,
+    #c9f29b 200deg,
+    #bae4e5 200deg,
+    #bae4e5 300deg
+  );
+  @apply w-[80px] h-[80px] md:h-[90px] md:w-[90px] lg:w-[100px] lg:h-[100px] rounded-full grid place-content-center text-black mx-auto 
+  dark:text-white;
+}
+.circle_inner {
+  @apply w-[60px] h-[60px] md:h-[70px] md:w-[70px] lg:w-[80px] lg:h-[80px] bg-white dark:bg-dark rounded-full grid place-content-center;
+}
+.progress_title {
+  @apply text-base md:text-lg lg:text-xl
+  font-semibold mt-2 md:mt-3
+  text-black dark:text-white;
+}
+
+/* ##Education Style  */
+#education {
+  @apply bg-education-light dark:bg-education-dark bg-no-repeat
+  bg-cover bg-center;
+}
+#education .card h4 {
+  @apply text-base md:text-lg lg:text-xl
+  text-black dark:text-white
+  font-medium md:font-semibold;
+}
+#education .card span {
+  @apply text-sm md:text-base
+  text-primary-green
+  font-medium;
+}
+#education .card p {
+  @apply text-sm md:text-base 
+  text-black dark:text-white
+  mt-3 md:mt-4;
+}
+
+/* ##Project Style  */
+.projects-grid {
+  @apply grid grid-cols-[repeat(1,minmax(200px,1fr))]
+  md:grid-cols-[repeat(3,minmax(200px,1fr))]
+  lg:grid-cols-[repeat(4,minmax(220px,1fr))]
+  auto-rows-[180px] lg:auto-rows-[200px] gap-3 md:gap-4 lg:gap-5
+  py-4 px-5 md:py-7 md:px-12 lg:py-8 lg:px-16;
+}
+.projects-grid > div {
+  @apply rounded-2xl md:rounded-xl
+  overflow-hidden;
+}
+.projects-grid > div:nth-child(odd) {
+  @apply row-span-2;
+}
+.projects-grid > div img {
+  @apply transition-all duration-1000 cursor-pointer;
+}
+/* ##Contact Style  */
+#contact {
+  @apply bg-contact-light dark:bg-contact-dark bg-no-repeat bg-cover bg-center;
+}
+#contact .section_title {
+  @apply text-left;
+}
+.contact_content p {
+  @apply text-black dark:text-white
+  text-sm md:text-base lg:w-1/2;
+}
+.contact_content a {
+  @apply mt-2 md:mt-3 lg:mt-4 !inline-block;
+}
+
+/* ##Price Style  */
+#price .card {
+  @apply text-center hover:translate-y-[-15px] transition-all duration-300
+}
+#price .card img {
+  @apply mx-auto my-5 md:my-6 lg:my-7;
+}
+#price .card h3 {
+  @apply text-black dark:text-white
+  text-xl lg:text-2xl
+  font-semibold;
+}
+#price .card span {
+  @apply text-black dark:text-white
+  text-xs md:text-sm;
+}
+#price .card h2 {
+  @apply my-4 md:my-5 
+  text-3xl font-semibold text-primary-green
+  md:text-4xl md:font-bold;
+}
+.services {
+  @apply my-3 md:my-4 lg:my-5 text-left w-max mx-auto list-disc list-inside;
+}
+.services li {
+  @apply text-black dark:text-slate-200 
+  text-sm md:text-base font-light md:font-normal;
+}
+#price .card button {
+  @apply !inline-block mt-3 md:mt-4 lg:mt-5;
+}
+
+#footer {
+  @apply bg-footer bg-no-repeat bg-cover bg-center;
+}
+.footer_content {
+  @apply flex flex-col md:flex-row md:justify-between md:items-center gap-10 md:gap-12;
+}
+.contact_methods {
+  @apply md:w-1/2 grid grid-cols-1;
+}
+.contact_method {
+  @apply flex gap-3 md:gap-4;
+}
+.contact_method .icon {
+  @apply w-[70px] h-[70px] lg:w-[80px] lg:h-[80px] rounded-full grid place-content-center text-2xl lg:text-3xl border border-primary-green;
+}
+.contact_method h4 {
+  @apply text-black dark:text-white
+  text-base font-semibold md:text-lg;
+}
+.contact_method span {
+  @apply text-black dark:text-white
+  text-xs md:text-sm line-clamp-2;
+}
+
+.contact_form {
+  @apply bg-transparent md:w-1/2;
+}
+.contact_form input,
+textarea {
+  @apply block w-full outline-none text-black dark:text-white py-1 px-3 lg:py-2 lg:px-4
+  bg-transparent rounded-lg border border-slate-300 mb-2 md:mb-3 lg:mb-4 placeholder:text-slate-500 dark:placeholder:text-slate-300;
+}
+.contact_form button {
+  @apply w-full text-center inline-block;
+}
+textarea {
+  @apply resize-none h-[150px];
+}
+textarea::-webkit-scrollbar {
+  cursor: pointer;
+  width: 10px;
+}
+textarea::-webkit-scrollbar-track {
+  background: transparent;
+}
+textarea::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 10px;
+}

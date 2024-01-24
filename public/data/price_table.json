@@ -1,0 +1,35 @@
+[
+  {
+    "type": "full-time work",
+    "message": "i am available for full time",
+    "price": 80,
+    "services": [
+      "web development",
+      "web ui",
+      "figma to html",
+      "animated webpage"
+    ]
+  },
+  {
+    "type": "fixed price project",
+    "message": "i am available for fixed roles",
+    "price": 50,
+    "services": [
+      "web development",
+      "web ui",
+      "figma to html",
+      "animated webpage"
+    ]
+  },
+  {
+    "type": "hourley work",
+    "message": "i am available for hourley projects",
+    "price": 10,
+    "services": [
+      "web development",
+      "web ui",
+      "figma to html",
+      "animated webpage"
+    ]
+  }
+]
