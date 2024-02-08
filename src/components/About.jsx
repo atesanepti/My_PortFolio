@@ -29,7 +29,7 @@ const About = () => {
           </div>
           <div className="card">
             <img src={dev_icon} />
-            <h3>Figma To HTML </h3>
+            <h3>Web Development</h3>
             <p>I am a Full Stack Developer based on MERN Stack</p>
           </div>
         </div>

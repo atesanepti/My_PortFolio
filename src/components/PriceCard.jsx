@@ -10,7 +10,7 @@ const PriceCard = ({ data ,img}) => {
       <h2>{price}$</h2>
       <ul className="services">
         {services.map((service) => (
-          <li key={Math.random}>{service}</li>
+          <li key={Math.random()}>{service}</li>
         ))}
       </ul>
       <button className="btn">Hire Me</button>

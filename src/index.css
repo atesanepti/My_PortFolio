@@ -6,6 +6,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 /* ##Reuseable Style  */
+
 html {
   @apply scroll-smooth;
 }
@@ -56,6 +57,7 @@ footer {
      bg-no-repeat
      bg-cover
      bg-center
+     bg-fixed
      dark:bg-home-bg-dark;
 }
 #header {
@@ -68,7 +70,7 @@ footer {
   px-9 transition-all duration-300 z-10;
 }
 #header.active {
-  @apply fixed top-0 bg-white dark:bg-[#100e17a9] shadow-2xl;
+  @apply fixed top-0 bg-white dark:bg-[#100e17a9] backdrop-blur-[10px] shadow-2xl;
   animation: toToBottom 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 @keyframes toToBottom {
@@ -289,7 +291,7 @@ footer {
   @apply flex flex-col;
 }
 .progress_bar {
-  @apply p-1 md:px-1 md:py-2;
+  @apply p-1 md:px-1 md:py-2 relative;
 }
 .progress_lable {
   @apply flex justify-between;
@@ -346,6 +348,15 @@ footer {
   @apply w-[80px] h-[80px] md:h-[90px] md:w-[90px] lg:w-[100px] lg:h-[100px] rounded-full grid place-content-center text-black mx-auto 
   dark:text-white;
 }
+.circle_progress_conteiner div:nth-child(2) .circle_outer {
+  background-image: conic-gradient(
+    #16453e 0deg,
+    #16453e 150deg,
+    #bae4e5 150deg,
+    #bae4e5 300deg
+  );
+}
+
 .circle_inner {
   @apply w-[60px] h-[60px] md:h-[70px] md:w-[70px] lg:w-[80px] lg:h-[80px] bg-white dark:bg-dark rounded-full grid place-content-center;
 }
@@ -411,7 +422,7 @@ footer {
 
 /* ##Price Style  */
 #price .card {
-  @apply text-center hover:translate-y-[-15px] transition-all duration-300
+  @apply text-center hover:translate-y-[-15px] transition-all duration-300;
 }
 #price .card img {
   @apply mx-auto my-5 md:my-6 lg:my-7;
@@ -489,4 +500,171 @@ textarea::-webkit-scrollbar-track {
 textarea::-webkit-scrollbar-thumb {
   background: #fff;
   border-radius: 10px;
+}
+
+/* ##Tooltip Style  */
+.tooltip {
+  @apply absolute
+  bg-slate-50 dark:bg-dark-suf
+  text-black dark:text-slate-100
+  p-2
+  rounded-sm md:rounded-md lg:rounded-lg 
+  shadow-[#0000003f] dark:shadow-[#00000091] shadow-xl
+  z-[5]
+  text-xs lg:text-sm
+  hidden
+  capitalize;
+}
+
+/* ##Doc Style  */
+.dot {
+  @apply w-[10px] h-[10px] rounded-full;
+}
+
+/* ##Teachers Style  */
+
+/* #swipper sider  */
+#teachers {
+  @apply !bg-teacher-light dark:!bg-teacher-dark
+  bg-no-repeat bg-cover bg-bottom capitalize;
+}
+.mySwiper {
+  @apply text-left py-10 px-5 lg:px-12 bg-[#fffdfd91] dark:bg-[#ffffff04] rounded-2xl backdrop-blur-sm;
+}
+
+.teacher_content {
+  direction: ltr;
+  @apply flex flex-col md:flex-row md:items-center gap-5 md:gap-7 lg:gap-9;
+}
+.mySwiper figure {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  @apply w-full md:w-[25%] rounded-3xl;
+}
+.mySwiper figure.anisul {
+  background-image: url(./assets/imgs/blur_images/anisul_islam_blur.png);
+}
+.mySwiper figure.sumit {
+  background-image: url(./assets/imgs/blur_images/sumit_saha_blur.jpg);
+}
+.mySwiper figure.nayem {
+  background-image: url(./assets/imgs/blur_images/hm_nayem_blur.jpg);
+}
+
+.teacher_content figure img {
+  @apply w-full  aspect-square object-cover rounded-3xl mx-auto  opacity-0 transition-all;
+}
+.teacher_content figure.loaded img {
+  @apply opacity-100;
+}
+.teacher_text_content {
+  @apply w-full md:w-[75%];
+}
+.teacher_text_content h4 {
+  @apply text-black dark:text-white
+  text-lg md:text-xl lg:text-2xl
+  font-medium lg:font-semibold;
+}
+.teacher_text_content p {
+  @apply text-xs md:text-sm
+  text-black dark:text-slate-100 max-w-[550px];
+}
+.teacher_text_content a {
+  @apply inline-block px-7
+  mt-3 md:mt-4 lg:mt-5;
+}
+
+/* #Swipper Side and Pagination Btn Style */
+.swiper-pagination-bullet {
+  @apply bg-primary-green;
+}
+
+/* ##Client Review Style  */
+#client {
+  @apply bg-white dark:bg-dark capitalize;
+}
+.client_cards {
+  @apply grid grid-flow-col auto-cols-[calc(100%/2-8px)] md:auto-cols-[calc(100%/3-8px)] lg:auto-cols-[calc(100%/4-8px)] 
+  overflow-x-auto gap-x-2 scroll-smooth snap-x lg:snap-none;
+}
+.client_cards::-webkit-scrollbar {
+  width: 0;
+}
+.client_card {
+  @apply mx-auto text-center w-full  snap-center border-t-[3px] border-primary-green  shadow-inner bg-slate-50 dark:bg-dark-suf;
+}
+p {
+  color: #30ffff;
+}
+.client_card figure {
+  @apply w-[50px] md:w-[80px] lg:w-[100px] h-auto rounded-full mx-auto;
+}
+.client_card figure {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.client_cards .client_card:nth-child(1) figure {
+  background-image: url("./assets/imgs/client/blue_images/client_1_blur.jpg");
+}
+.client_cards .client_card:nth-child(2) figure {
+  background-image: url("./assets/imgs/client/blue_images/client_2_blur.jpg");
+}
+.client_cards .client_card:nth-child(3) figure {
+  background-image: url("./assets/imgs/client/blue_images/client_3_blur.jpg");
+}
+.client_cards .client_card:nth-child(4) figure {
+  background-image: url("./assets/imgs/client/blue_images/client_4_blur.jpg");
+}
+.client_cards .client_card:nth-child(5) figure {
+  background-image: url("./assets/imgs/client/blue_images/client_5_blur.jpg");
+}
+.client_cards .client_card:nth-child(6) figure {
+  background-image: url("./assets/imgs/client/blue_images/client_6_blur.jpg");
+}
+.client_card figure img {
+  @apply w-full aspect-square rounded-full object-cover opacity-0 transition-all;
+}
+.client_card figure.loaded img {
+  @apply opacity-100;
+}
+.client_card_content h4 {
+  @apply text-base md:text-lg lg:text-xl 
+  font-medium
+  text-black dark:text-white
+  my-1 md:my-2 lg:my-3;
+}
+.client_card_content > span {
+  @apply text-black dark:text-gray-300
+  text-sm lg:text-base;
+}
+.client_card_content p {
+  @apply text-black dark:text-gray-300
+  text-xs md:text-sm
+  line-clamp-2 md:line-clamp-3;
+}
+
+/* Rateing Icon  */
+.rate_icon_4 span:not(:nth-child(5)) {
+  @apply text-orange-500;
+}
+.rate_icon_5 span {
+  @apply text-orange-500;
+}
+.rate {
+  @apply border-gray-600 border-r;
+}
+
+.navigation_prev_btn,
+.navigation_next_btn {
+  @apply w-[20px] h-[20px] md:w-[25px] md:h-[25px] lg:w-[30px] lg:h-[30px] rounded-full
+  bg-primary-green p-3 md:p-4 grid place-content-center absolute top-[calc(50%-10px)] translate-y-[-50%] 
+  text-white;
+}
+.navigation_prev_btn {
+  @apply left-[-10px];
+}
+.navigation_next_btn {
+  @apply right-[-10px];
 }

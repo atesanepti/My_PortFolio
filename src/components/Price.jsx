@@ -18,7 +18,7 @@ const Price = () => {
         </div>
         <div className="cards">
           {data.map((data,index) => (
-            <PriceCard key={Math.random()} data={data} img={imgs[index]}  />
+            <PriceCard data={data} img={imgs[index]} key={index}  />
           ))}
         </div>
       </Container>

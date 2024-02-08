@@ -22,6 +22,8 @@ export default {
         "education-dark": "url(./assets/imgs/education_dark.png)",
         "contact-light": "url(./assets/imgs/contact_bg_light.png)",
         "contact-dark": "url(./assets/imgs/contact_bg_dark.png)",
+        "teacher-light": "url(./assets/imgs/teacher_bg_light.jpg)",
+        "teacher-dark": "url(./assets/imgs/teacher_bg_dark.jpg)",
         footer: "url(./assets/imgs/footer.png)",
       },
       gridTemplateColumns: {
